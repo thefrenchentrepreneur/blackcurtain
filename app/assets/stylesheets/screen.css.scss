@@ -1,0 +1,209 @@
+@import "partials/base"; // To configure blueprint, edit the partials/base.sass file.
+
+$body: 'Quicksand', 'Ubuntu', 'Gill Sans', 'Calibri', sans-serif;
+$heading: 'Amaranth', 'Liberation Serif', 'Georgia', serif;
+$pink: #F78FED;
+$darkpink: #774573;
+$blue: #1991F4;
+
+html {
+  height: 100%;
+  @include background-image(radial-gradient(#444, #111));
+}
+
+body {
+  margin: auto;
+  padding-top: 150px;
+  width: 950px;
+  font-family: $body;
+}
+
+h1, h2, h3, h4, h5, h6 {
+  font-family: $heading;
+  letter-spacing: -1px;
+}
+
+h1 {
+  margin-top: -15px;
+  color: $pink;
+  font-size: 56px;
+  @include single-text-shadow(hsla(0%,0%,0%,0.2), 2px, 2px, 5px);
+
+  p {
+    display: inline-block;
+    margin-left: -5px;
+    letter-spacing: 5px;
+  }
+}
+
+#main {
+  padding: 15px;
+  float: left;
+  width: 510px;
+  color: white;
+  background: $blue;
+  @include border-radius;
+  @include single-box-shadow(hsla(0%,0%,0%,0.5), 1px, 1px, 15px);
+
+  > p {
+    margin: 50px 0;
+    font-size: 22px;
+    font-weight: bold;
+    letter-spacing: -1px;
+  }
+}
+
+form {
+  text-align: right;
+
+  p {
+    margin-left: 10px;
+    text-align: left;
+    display: inline-block;
+  }
+
+  p:last-child {
+    width: auto;
+  }
+
+  label {
+    display: block;
+    font-size: small;
+    font-family: $heading;
+  }
+
+
+  input {
+    margin: 0;
+    margin-top: 10px;
+    padding: 8px;
+    font-family: inherit;
+    letter-spacing: -1px;
+    border: none;
+    @include border-radius;
+  }
+
+  input[name='letter'] {
+    width: 1em;
+    font-weight: bold;
+    text-transform: uppercase;
+  }
+
+  input[name='email'] {
+    @include border-corner-radius(top, right, 0);
+    @include border-corner-radius(bottom, right, 0);
+  }
+  
+  .submit {
+    margin-left: -5px;
+
+    label {
+      visibility: hidden;
+    }
+    
+    input {
+      position: relative;
+      top: 0.5px;
+      padding: 8px;
+      height: auto;
+      color: $darkpink;
+      font-family: $body;
+      font-weight: bold;
+      cursor: pointer;
+      @include border-corner-radius(top, left, 0);
+      @include border-corner-radius(bottom, left, 0);
+      background: $pink;
+    }
+  }
+}
+
+aside {
+  margin-left: 20px;
+  float: left;
+
+  ul {
+    margin-top: 15px;
+    margin-bottom: 6px;
+    list-style: none;
+  }
+
+  li {
+    display: inline-block;
+    margin: 0 10px;
+    width: 60px;
+    text-align: center;
+  }
+
+  li:first-child {
+    margin-left: 0px;
+  }
+
+  h3 {
+    margin-top: -10px;
+    color: white;
+    font-size: 96px;
+    text-transform: uppercase;
+    @include single-text-shadow(hsla(0%,0%,0%,0.2), 2px, 2px, 5px);
+  }
+
+  p {
+    position: relative;
+    height: 100px;
+
+    strong {
+      position: absolute;
+      bottom: 0;
+      width: 80%;
+      color: $darkpink;
+      font-size: 12px;
+      background: $pink;
+    }
+  }
+}
+
+h2 {
+  color: $blue;
+  font-size: 20px;
+  font-style: italic;
+}
+
+footer {
+  padding: 10px;
+  position: relative;
+  top: 100px;
+  clear: both;
+  color: white;
+  font-size: 11px;
+  text-align: center;
+  background: hsla(0%,0%,0%,0.1);
+  @include border-radius;
+
+  nav ul {
+    margin-bottom: 10px;
+    list-style: none;
+
+    li {
+      display: inline-block;
+    }
+    
+    li:after {
+      content: ' | ';
+    }
+
+    li:last-child:after {
+      content: none;
+    }
+
+    a {
+      padding: 0 5px;
+      color: white;
+      font-size: 13px;
+      text-decoration: none;
+      @include text-shadow;
+    }
+
+    a:hover {
+      color: #ccc;
+    }
+  }
+}

@@ -1,0 +1,39 @@
+#main
+  %h1 
+    Gue
+    %p ______
+  %p Guess the correct letter to get early access to the website before it launches!
+  %form
+    %p
+      %label letter
+      %input(type='text' name='letter' maxlength='1')
+    %p
+      %label e-mail address
+      %input(type='text' name='email')
+    %p.submit
+      %label submit 
+      %input(type='submit' value='Subscribe')
+%aside
+  %h2 The top 3 guesses are...
+  %ul
+    %li
+      %p
+        %strong(style='height:60px') 60%
+      %h3 s
+    %li
+      %p
+        %strong(style='height:25px') 25%
+      %h3 n
+    %li
+      %p
+        %strong(style='height:15px') 15%
+      %h3 l
+  %span.st_facebook_large
+  %span.st_twitter_large
+  %span.st_sharethis_large
+  %span.st_email_large
+  %script(type='text/javascript')
+    var switchTo5x=false;
+  %script(type='text/javascript' src='http://w.sharethis.com/button/buttons.js')
+  %script(type='text/javascript')
+    stLight.options({publisher:'ca10c0a2-801e-4ae6-9964-57792b8e1539'});
