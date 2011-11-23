@@ -13,14 +13,22 @@ html {
 
 body {
   margin: auto;
-  padding-top: 150px;
   width: 950px;
   font-family: $body;
+  padding-top: 50px;
 }
 
 h1, h2, h3, h4, h5, h6 {
   font-family: $heading;
   letter-spacing: -1px;
+}
+
+div#logo {
+  margin-bottom: 40px;
+
+  img {
+    width: 240px;
+  }
 }
 
 h1 {
