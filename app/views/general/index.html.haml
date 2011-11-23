@@ -1,3 +1,13 @@
+#fb-root
+%script(type='text/javascript')
+  (function(d, s, id) {
+  var js, fjs = d.getElementsByTagName(s)[0];
+  if (d.getElementById(id)) {return;}
+  js = d.createElement(s); js.id = id;
+  js.src = "//connect.facebook.net/en_US/all.js#xfbml=1&appId=121871154591526";
+  fjs.parentNode.insertBefore(js, fjs);
+  } (document, 'script', 'facebook-jssdk'));
+
 #main
   %h1 
     Gue
@@ -12,7 +22,7 @@
       %input(type='text' name='email')
     %p.submit
       %label submit 
-      %input(type='submit' value='Subscribe')
+      %input(type='submit' value='submit')
 %aside
   %h2 The top 3 guesses are...
   %ul
@@ -28,12 +38,7 @@
       %p
         %strong(style='height:15px') 15%
       %h3 l
-  %span.st_facebook_large
-  %span.st_twitter_large
-  %span.st_sharethis_large
-  %span.st_email_large
-  %script(type='text/javascript')
-    var switchTo5x=false;
-  %script(type='text/javascript' src='http://w.sharethis.com/button/buttons.js')
-  %script(type='text/javascript')
-    stLight.options({publisher:'ca10c0a2-801e-4ae6-9964-57792b8e1539'});
+  #share_buttons
+    %a(href='href="https://twitter.com/share' class='twitter-share-button' data-url='http://bit.ly/tOQOcb' data-text='Guess the name of the next hot startup to get early access before it launches!' data-count='horizontal' data-via='GuessmyStartup') Tweet
+    %script(type='text/javascript' src='//platform.twitter.com/widgets.js')
+    .fb-like(data-href='http://www.guessmystartup.com/' data-send='true' data-layout='button_count' data-width='100' data-show-faces='false')
