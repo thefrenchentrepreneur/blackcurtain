@@ -13,13 +13,17 @@ html {
 
 body {
   margin: auto;
+  padding-top: 50px;
   width: 950px;
   font-family: $body;
-  padding-top: 50px;
+  letter-spacing: -1px;
 }
 
 h1, h2, h3, h4, h5, h6 {
   font-family: $heading;
+}
+
+a {
   letter-spacing: -1px;
 }
 
@@ -62,7 +66,6 @@ h1 {
     margin: 50px 0;
     font-size: 22px;
     font-weight: normal;
-    letter-spacing: -1px;
   }
 }
 
@@ -91,7 +94,6 @@ form {
     margin-top: 10px;
     padding: 12px;
     font-family: inherit;
-    letter-spacing: -1px;
     border: none;
     @include border-radius;
   }
@@ -185,6 +187,7 @@ footer {
   color: white;
   font-size: 11px;
   text-align: center;
+  letter-spacing: 0;
   background: hsla(0%,0%,0%,0.1);
   @include border-radius;
 
@@ -223,26 +226,33 @@ footer {
   width: 125px;
 }
 
-#privacy {
+#privacy, #contact {
+  display: none;
   padding: 10px;
   background: hsla(100%, 100%, 100%, 0.75);
-  height: 0;
-  overflow: hidden;
-  @include transparent; // initially hide this element
-  @include transition-property(all);
-  @include transition-duration(1s);
-  @include transition-timing-function(ease-in);
   @include border-radius;
   @include single-box-shadow(hsla(0%,0%,0%,0.5), 1px, 1px, 15px);
 
+  h4 {
+    margin-bottom: 1em;
+    font-size: 24px;
+  }
+
   p {
     margin: 1em 0;
-    letter-spacing: -1px;
+  }
+
+  a {
+    color: inherit;
+    font-weight: bold;
+  }
+
+  a[href='#logo'] {
+    padding: 20px 0;
+    text-decoration: none;
   }
 }
 
-#privacy:target {
-  height: auto;
-  overflow: visible;
-  @include opaque;
+#privacy:target, #contact:target {
+  display: block;
 }
