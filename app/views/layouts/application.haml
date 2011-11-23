@@ -1,10 +1,13 @@
 !!!
-%html
+%html(itemscope itemtype='http://schema.org/Website')
   %head
     %title GuessMyStartup
     = javascript_include_tag 'application'
     = stylesheet_link_tag 'application', :media => 'screen, projection'
     = csrf_meta_tags
+    %meta(itemprop='name' content='GuessMyStartup')
+    %meta(itemprop='description' content='Guess the next letter of my upcoming startup to get early access before it launches.')
+    %meta(itemprop='image' content='http://guessmystartup.com/assets/logo.png')
     %link(href='http://fonts.googleapis.com/css?family=Quicksand:400,700' rel='stylesheet' type='text/css')
     %link(href='http://fonts.googleapis.com/css?family=Amaranth' rel='stylesheet' type='text/css')
   %body
