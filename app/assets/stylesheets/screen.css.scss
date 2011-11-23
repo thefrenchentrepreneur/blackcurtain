@@ -84,7 +84,7 @@ form {
   input {
     margin: 0;
     margin-top: 10px;
-    padding: 8px;
+    padding: 12px;
     font-family: inherit;
     letter-spacing: -1px;
     border: none;
@@ -112,7 +112,6 @@ form {
     input {
       position: relative;
       top: 0.5px;
-      padding: 8px;
       height: auto;
       color: $darkpink;
       font-family: $body;
@@ -173,7 +172,6 @@ aside {
 h2 {
   color: $blue;
   font-size: 20px;
-  font-style: italic;
 }
 
 footer {
