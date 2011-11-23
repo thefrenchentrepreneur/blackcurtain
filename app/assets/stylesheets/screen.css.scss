@@ -132,7 +132,7 @@ form {
 }
 
 aside {
-  margin-left: 20px;
+  margin-left: 40px;
   float: left;
 
   ul {
@@ -182,14 +182,19 @@ h2 {
 }
 
 footer {
-  margin: 40px 0;
-  padding: 10px;
-  color: white;
-  font-size: 11px;
-  text-align: center;
-  letter-spacing: 0;
-  background: hsla(0%,0%,0%,0.1);
-  @include border-radius;
+  padding-top: 45px;
+  clear: both;
+  
+  .container {
+    margin-bottom: 40px;
+    padding: 10px 0;
+    color: white;
+    font-size: 11px;
+    text-align: center;
+    letter-spacing: 0;
+    background: hsla(0%,0%,0%,0.1);
+    @include border-radius;
+  }
 
   nav ul {
     margin-bottom: 10px;
