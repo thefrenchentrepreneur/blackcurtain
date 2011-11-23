@@ -31,6 +31,11 @@ div#logo {
   }
 }
 
+#container {
+  padding-bottom: 10px;
+  @include clearfix;
+}
+
 h1 {
   margin-top: -15px;
   color: $pink;
@@ -175,10 +180,8 @@ h2 {
 }
 
 footer {
+  margin: 40px 0;
   padding: 10px;
-  position: relative;
-  top: 100px;
-  clear: both;
   color: white;
   font-size: 11px;
   text-align: center;
@@ -218,4 +221,28 @@ footer {
 .fb_edge_widget_with_comment {
   top: -4px;
   width: 125px;
+}
+
+#privacy {
+  padding: 10px;
+  background: hsla(100%, 100%, 100%, 0.75);
+  height: 0;
+  overflow: hidden;
+  @include transparent; // initially hide this element
+  @include transition-property(all);
+  @include transition-duration(1s);
+  @include transition-timing-function(ease-in);
+  @include border-radius;
+  @include single-box-shadow(hsla(0%,0%,0%,0.5), 1px, 1px, 15px);
+
+  p {
+    margin: 1em 0;
+    letter-spacing: -1px;
+  }
+}
+
+#privacy:target {
+  height: auto;
+  overflow: visible;
+  @include opaque;
 }
