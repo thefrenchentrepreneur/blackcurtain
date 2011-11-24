@@ -11,20 +11,21 @@
 #
 # It's strongly recommended to check this file into your version control system.
 
-ActiveRecord::Schema.define(:version => 20111122213519) do
+ActiveRecord::Schema.define(:version => 20111123204042) do
 
   create_table "apps", :force => true do |t|
     t.string   "name"
-    t.string   "current_letter"
-    t.datetime "date_released"
     t.string   "email"
+    t.integer  "current_letter_position"
+    t.datetime "date_last_letter_released"
     t.datetime "created_at"
     t.datetime "updated_at"
+    t.string   "hash"
   end
 
   create_table "guesses", :force => true do |t|
-    t.string   "email"
     t.string   "letter"
+    t.string   "email"
     t.datetime "created_at"
     t.datetime "updated_at"
   end

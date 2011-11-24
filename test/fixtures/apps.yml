@@ -2,12 +2,12 @@
 
 one:
   name: MyString
-  current_letter: MyString
-  date_released: 2011-11-22 16:10:16
   email: MyString
+  current_letter_position: 1
+  date_last_letter_released: 2011-11-23 15:31:47
 
 two:
   name: MyString
-  current_letter: MyString
-  date_released: 2011-11-22 16:10:16
   email: MyString
+  current_letter_position: 1
+  date_last_letter_released: 2011-11-23 15:31:47

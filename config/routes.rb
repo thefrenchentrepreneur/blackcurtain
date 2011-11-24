@@ -1,4 +1,4 @@
 Guessmystartup::Application.routes.draw do
-  get "general/index"
-  root :to => 'general#index'
+  root :to => 'guesses#new'
+  resources :guesses
 end

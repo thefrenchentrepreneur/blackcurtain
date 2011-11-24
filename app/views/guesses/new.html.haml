@@ -9,20 +9,18 @@
   } (document, 'script', 'facebook-jssdk'));
 
 #main
-  %h1 
-    Gue
-    %p ______
+  = render :partial => 'app_name'
   %p Guess the correct letter to get early access to the website before it launches!
-  %form
+  = form_for @guess, :url => { :controller => 'guesses', :action => 'create' } do |f|
     %p
-      %label letter
-      %input(type='text' name='letter' maxlength='1')
+      = f.label :letter
+      = f.text_field :letter, :maxlength => 1
     %p
-      %label e-mail address
-      %input(type='text' name='email')
+      = f.label :email
+      = f.text_field :email, :maxlength => 30
     %p.submit
       %label submit 
-      %input(type='submit' value='submit')
+      = f.submit 'Submit'
 %aside
   %h2 The top 3 guesses are...
   %ul
