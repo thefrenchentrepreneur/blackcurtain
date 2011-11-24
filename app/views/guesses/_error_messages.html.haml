@@ -1,8 +1,9 @@
 - if object.errors.any?
   #error_explanation
     %h2
+      Wait a minute! You have 
       = pluralize(object.errors.count, "error")
-      prohibited this user from being saved:
+      that you need to fix
     %ul
       - object.errors.full_messages.each do |msg|
         %li= msg
