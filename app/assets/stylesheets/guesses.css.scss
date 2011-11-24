@@ -1,3 +1,30 @@
 // Place all the styles related to the guesses controller here.
 // They will automatically be included in application.css.
 // You can use Sass (SCSS) here: http://sass-lang.com/
+
+thead {
+  color: white;
+  background: black;
+
+  th {
+    padding: 5px;
+    font-weight: bold;
+  }
+}
+
+tbody {
+
+  td {
+    padding: 5px;
+  }
+
+  tr {
+    background: white;
+  }
+
+  tr:nth-child(odd) {
+    background: #eee;
+  }
+
+}
+

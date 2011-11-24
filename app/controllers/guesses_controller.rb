@@ -1,5 +1,9 @@
 class GuessesController < ApplicationController
   
+  def index
+    @guesses = Guess.find :all
+  end
+  
   def new
     @known_letters, @dashes = get_pieces_of_app_name
     @guess = Guess.new

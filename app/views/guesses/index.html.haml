@@ -1,0 +1,16 @@
+%table
+  %thead
+    %tr
+      %th id
+      %th letter
+      %th email
+      %th created_at
+      %th updated_at
+  %tbody
+    - @guesses.each do |g|
+      %tr
+        %td= g.id
+        %td= g.letter
+        %td= g.email
+        %td= g.created_at
+        %td= g.updated_at
