@@ -4,5 +4,5 @@
       = pluralize(object.errors.count, "error")
       prohibited this user from being saved:
     %ul
-    - object.errors.full_messages.each do |msg|
-      %li= msg
+      - object.errors.full_messages.each do |msg|
+        %li= msg
