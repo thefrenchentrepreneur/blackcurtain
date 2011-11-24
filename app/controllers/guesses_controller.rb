@@ -6,6 +6,13 @@ class GuessesController < ApplicationController
   end
   
   def create
+    @guess = Guess.new(params[:guess])
+    if @guess.save
+      redirect_to '/'
+    else
+      @known_letters, @dashes = get_pieces_of_app_name
+      render 'new'
+    end
   end
 
   private
