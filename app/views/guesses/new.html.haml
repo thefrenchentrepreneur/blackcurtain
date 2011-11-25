@@ -10,15 +10,9 @@
 
 #main
   = render :partial => 'app_name'
-  %p Guess the correct letter or number to get early access to the website before it launches!
   #actions
     = render :partial => 'guess_form'
     %p#notice= @notice
 %aside
   = render :partial => 'top_guesses'
-  #share_buttons
-    %a(href='href="https://twitter.com/share' class='twitter-share-button' data-url='http://bit.ly/tOQOcb' data-text='Guess the name of the next hot startup to get early access before it launches!' data-count='horizontal' data-via='GuessmyStartup') Tweet
-    %script(type='text/javascript' src='//platform.twitter.com/widgets.js')
-    .fb-like(data-href='http://www.guessmystartup.com/' data-send='true' data-layout='button_count' data-width='50' data-show-faces='false')
-    .g-plusone(data-size='medium' data-href='http://www.guesswher.com/')
-    %script(type='text/javascript' src='https://apis.google.com/js/plusone.js')
+  = render :partial => 'share_buttons'

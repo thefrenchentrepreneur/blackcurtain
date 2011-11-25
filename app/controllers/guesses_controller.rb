@@ -27,7 +27,7 @@ class GuessesController < ApplicationController
       @app.update_character_tally(guess.character)
       @app.increment_num_guesses
       @hide = 'hide'
-      @notice = "Thanks! We'll send you the link to the website when we launch."
+      @notice = "Thanks for your participating, we'll send you the link to the website before we officially launch. And if at least 4 of your guesses are correct, you'll be part of the limited group of private beta testers!"
       render 'new'
     else
       render 'new'
