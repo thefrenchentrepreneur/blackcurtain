@@ -2,7 +2,8 @@ class GuessesController < ApplicationController
   before_filter :include_app, :include_app_name, :include_top_guesses
   
   def index
-    @guesses = Guess.find :all
+    # @guesses = Guess.find :all
+    redirect_to '/'
   end
   
   def new
