@@ -11,17 +11,9 @@
 #main
   = render :partial => 'app_name'
   %p Guess the correct letter to get early access to the website before it launches!
-  = form_for @guess, :url => { :controller => 'guesses', :action => 'create' } do |f|
-    = render 'error_messages', :object => f.object
-    %p
-      = f.label :letter
-      = f.text_field :letter, :maxlength => 1
-    %p
-      = f.label :email
-      = f.text_field :email, :maxlength => 30
-    %p.submit
-      %label submit 
-      = f.submit 'Submit'
+  #actions
+    = render :partial => 'guess_form'
+    %p#notice= @notice
 %aside
   %h2 The top 3 guesses are...
   %ul

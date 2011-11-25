@@ -3,6 +3,7 @@
 $body: 'Quicksand', 'Ubuntu', 'Gill Sans', 'Calibri', sans-serif;
 $heading: 'Amaranth', 'Liberation Serif', 'Georgia', serif;
 $pink: #F78FED;
+$lightpink: #f7d7f4;
 $darkpink: #774573;
 $blue: #1991F4;
 
@@ -69,6 +70,15 @@ h1 {
   }
 }
 
+#actions {
+  overflow: hidden;
+}
+
+#actions > * {
+  width: 510px;
+  display: inline-block;
+}
+
 form {
   text-align: right;
 
@@ -131,9 +141,21 @@ form {
   }
 }
 
+#actions form.hide {
+  display: none;
+}
+
+#notice {
+  color: $lightpink;
+  font-size: 18px;
+  font-weight: bold;
+  text-align: right;
+}
+
 #error_explanation {
   margin-top: -20px;
   margin-bottom: 20px;
+  padding-top: 19px;
   color: red;
   text-align: left;
   border: thin solid $pink;

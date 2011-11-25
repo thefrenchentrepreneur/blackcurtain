@@ -1,32 +1,39 @@
 class GuessesController < ApplicationController
+  before_filter :include_app_name
   
   def index
     @guesses = Guess.find :all
   end
   
   def new
-    @known_letters, @dashes = get_pieces_of_app_name
     @guess = Guess.new
   end
   
   def create
-    @guess = Guess.new(params[:guess])
-    if @guess.save
-      redirect_to '/'
+    @guess = Guess.new params[:guess]
+    if not Guess.email_exists(@guess.email) or Guess.validate(@guess)
+      save(@guess)
     else
-      @known_letters, @dashes = get_pieces_of_app_name
+      @hide = 'hide'
+      @notice = 'Sorry, you must wait until we reveal the next letter'
       render 'new'
     end
   end
 
   private
 
-  def get_pieces_of_app_name
-    app = App.find :first
-    known_letters = app.name[0..app.current_letter_position-1]
-    num_unknown = app.name.length - known_letters.length
-    dashes = '_' * num_unknown
-    return known_letters, dashes
+  def save(guess)
+    if guess.save
+      @hide = 'hide'
+      @notice = "Thanks! We'll send you the link to the website when we launch."
+      render 'new'
+    else
+      render 'new'
+    end
+  end
+
+  def include_app_name
+    @known_letters, @dashes = App.split_name
   end
 
 end
