@@ -15,20 +15,7 @@
     = render :partial => 'guess_form'
     %p#notice= @notice
 %aside
-  %h2 The top 3 guesses are...
-  %ul
-    %li
-      %p
-        %strong(style='height:60px') 60%
-      %h3 s
-    %li
-      %p
-        %strong(style='height:25px') 25%
-      %h3 n
-    %li
-      %p
-        %strong(style='height:15px') 15%
-      %h3 l
+  = render :partial => 'top_guesses'
   #share_buttons
     %a(href='href="https://twitter.com/share' class='twitter-share-button' data-url='http://bit.ly/tOQOcb' data-text='Guess the name of the next hot startup to get early access before it launches!' data-count='horizontal' data-via='GuessmyStartup') Tweet
     %script(type='text/javascript' src='//platform.twitter.com/widgets.js')

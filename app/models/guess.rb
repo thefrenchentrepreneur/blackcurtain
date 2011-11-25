@@ -22,7 +22,7 @@ class Guess < ActiveRecord::Base
   
   def self.guessed_current_character(email)
     guess = latest_guess_by(email)
-    guess.created_at > App.first.date_last_character_released
+    guess.created_at > App.first.date_last_character_revealed
   end
 
   def self.latest_guess_by(email)

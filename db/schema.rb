@@ -11,7 +11,7 @@
 #
 # It's strongly recommended to check this file into your version control system.
 
-ActiveRecord::Schema.define(:version => 20111125074517) do
+ActiveRecord::Schema.define(:version => 20111125091959) do
 
   create_table "apps", :force => true do |t|
     t.string   "name"
@@ -21,9 +21,18 @@ ActiveRecord::Schema.define(:version => 20111125074517) do
     t.datetime "created_at"
     t.datetime "updated_at"
     t.string   "hash"
+    t.integer  "num_guesses"
   end
 
   add_index "apps", ["hash"], :name => "index_apps_on_hash"
+
+  create_table "character_tallies", :force => true do |t|
+    t.integer  "app_id"
+    t.string   "character"
+    t.integer  "count"
+    t.datetime "created_at"
+    t.datetime "updated_at"
+  end
 
   create_table "guesses", :force => true do |t|
     t.string   "character"

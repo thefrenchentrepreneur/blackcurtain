@@ -1,5 +1,5 @@
 class GuessesController < ApplicationController
-  before_filter :include_app_name
+  before_filter :include_app, :include_app_name, :include_top_guesses
   
   def index
     @guesses = Guess.find :all
@@ -24,6 +24,8 @@ class GuessesController < ApplicationController
 
   def save(guess)
     if guess.save
+      @app.update_character_tally(guess.character)
+      @app.increment_num_guesses
       @hide = 'hide'
       @notice = "Thanks! We'll send you the link to the website when we launch."
       render 'new'
@@ -32,9 +34,37 @@ class GuessesController < ApplicationController
     end
   end
 
+  def include_app
+    @app = App.first
+  end
+
   def include_app_name
-    @known_characters, @dashes = App.split_name('iq4wb7p1')
+    @known_characters, @dashes = @app.split_name
     # @known_characters, @dashes = App.split_name(params[:hash])
+  end
+
+  def include_top_guesses
+    @top_guesses = @app.character_tallies.order('count desc').limit(3) 
+    @top_guesses_percents = percents_of(@top_guesses)
+    @top_guesses_heading = define_heading(@top_guesses.length)
+  end
+
+  def percents_of(top_guesses)
+    percents = Array.new
+    top_guesses.each do |g|
+      percents << g.count.to_f / g.app.num_guesses * 100
+    end
+    return percents
+  end
+
+  def define_heading(count)
+    if count > 1
+      @top_guesses_heading = "The top #{@top_guesses.length } guesses are"
+    elsif count == 1
+      @top_guesses_heading = "The top guess is"
+    else
+      @top_guesses_heading = "There are currently no guesses yet"
+    end
   end
 
 end
