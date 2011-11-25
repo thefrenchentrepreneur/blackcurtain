@@ -15,7 +15,7 @@ class GuessesController < ApplicationController
       save(@guess)
     else
       @hide = 'hide'
-      @notice = 'Sorry, you must wait until we reveal the next letter'
+      @notice = 'Sorry, you must wait until we reveal the next letter or number'
       render 'new'
     end
   end
@@ -33,7 +33,8 @@ class GuessesController < ApplicationController
   end
 
   def include_app_name
-    @known_letters, @dashes = App.split_name
+    @known_characters, @dashes = App.split_name('iq4wb7p1')
+    # @known_characters, @dashes = App.split_name(params[:hash])
   end
 
 end

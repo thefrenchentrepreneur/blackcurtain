@@ -2,7 +2,7 @@
   %thead
     %tr
       %th id
-      %th letter
+      %th character
       %th email
       %th created_at
       %th updated_at
@@ -10,7 +10,7 @@
     - @guesses.each do |g|
       %tr
         %td= g.id
-        %td= g.letter
+        %td= g.character
         %td= g.email
         %td= g.created_at
         %td= g.updated_at

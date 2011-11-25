@@ -11,23 +11,26 @@
 #
 # It's strongly recommended to check this file into your version control system.
 
-ActiveRecord::Schema.define(:version => 20111123204042) do
+ActiveRecord::Schema.define(:version => 20111125074517) do
 
   create_table "apps", :force => true do |t|
     t.string   "name"
     t.string   "email"
-    t.integer  "current_letter_position"
-    t.datetime "date_last_letter_released"
+    t.integer  "current_character_position"
+    t.datetime "date_last_character_revealed"
     t.datetime "created_at"
     t.datetime "updated_at"
     t.string   "hash"
   end
 
+  add_index "apps", ["hash"], :name => "index_apps_on_hash"
+
   create_table "guesses", :force => true do |t|
-    t.string   "letter"
+    t.string   "character"
     t.string   "email"
     t.datetime "created_at"
     t.datetime "updated_at"
+    t.integer  "app_id"
   end
 
 end
