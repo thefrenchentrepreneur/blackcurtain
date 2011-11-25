@@ -27,7 +27,7 @@ class GuessesController < ApplicationController
       @app.update_character_tally(guess.character)
       @app.increment_num_guesses
       @hide = 'hide'
-      @notice = "Thanks for your participating, we'll send you the link to the website before we officially launch. And if at least 4 of your guesses are correct, you'll be part of the limited group of private beta testers!"
+      @notice = "Thanks for participating, we'll send you the link to the website before we officially launch. If at least 4 of your guesses are correct, you'll be part of the limited group of private beta testers! Don't forget to come back next week and share with your friends."
       render 'new'
     else
       render 'new'
@@ -40,6 +40,7 @@ class GuessesController < ApplicationController
 
   def include_app_name
     @known_characters, @dashes = @app.split_name
+    @notice = "Wanna get early access to the next hot startup? Guess the name of my startup by submitting a letter every week."
     # @known_characters, @dashes = App.split_name(params[:hash])
   end
 

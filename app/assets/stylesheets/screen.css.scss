@@ -52,6 +52,10 @@ h1 {
     margin-left: -5px;
     letter-spacing: 5px;
   }
+
+  p:first-letter {
+    color: white;
+  }
 }
 
 #main {
@@ -68,15 +72,6 @@ h1 {
     font-size: 22px;
     font-weight: normal;
   }
-}
-
-#actions {
-  overflow: hidden;
-}
-
-#actions > * {
-  width: 510px;
-  display: inline-block;
 }
 
 form {
@@ -141,7 +136,7 @@ form {
   }
 }
 
-#actions form.hide {
+form.hide {
   display: none;
 }
 
@@ -155,7 +150,6 @@ form {
 #error_explanation {
   margin-top: -20px;
   margin-bottom: 20px;
-  padding-top: 19px;
   color: red;
   text-align: left;
   border: thin solid $pink;
