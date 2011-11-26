@@ -16,7 +16,7 @@ class GuessesController < ApplicationController
       save(@guess)
     else
       @hide = 'hide'
-      @notice = 'Sorry, you must wait until we reveal the next letter or number'
+      @notice = 'Sorry, you must wait until we reveal the next letter'
       render 'new'
     end
   end
