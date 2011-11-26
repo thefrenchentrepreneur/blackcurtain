@@ -17,8 +17,13 @@ class App < ActiveRecord::Base
   def split_name
     known_characters = self.name[0..self.current_character_position-1]
     num_unknown = self.name.length - known_characters.length
+    letter = nil
+    if num_unknown > 0
+      letter = '_'
+      num_unknown -= 1
+    end
     dashes = '_' * num_unknown
-    return known_characters, dashes
+    return known_characters, letter, dashes
   end
   
   def update_character_tally(character)

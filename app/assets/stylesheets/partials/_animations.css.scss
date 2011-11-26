@@ -1,0 +1,39 @@
+$pink: #F78FED;
+
+// Animation Group for glowing underscore
+@-webkit-keyframes glowing {
+  0% {
+    color: $pink;
+  }
+  50% {
+    color: white;
+  }
+  100% {
+    color: $pink
+  }
+}
+
+@-moz-keyframes glowing {
+  0% {
+    color: $pink;
+  }
+  50% {
+    color: white;
+  }
+  100% {
+    color: $pink
+  }
+}
+
+@keyframes glowing {
+  0% {
+    color: $pink;
+  }
+  50% {
+    color: white;
+  }
+  100% {
+    color: $pink
+  }
+}
+

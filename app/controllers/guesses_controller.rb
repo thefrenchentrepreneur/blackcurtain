@@ -40,7 +40,7 @@ class GuessesController < ApplicationController
   end
 
   def include_app_name
-    @known_characters, @dashes = @app.split_name
+    @known_characters, @letter, @dashes = @app.split_name
     @notice = "Wanna get early access to the next hot startup? Guess the name of my startup by submitting a letter every week."
     # @known_characters, @dashes = App.split_name(params[:hash])
   end

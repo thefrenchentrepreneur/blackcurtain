@@ -1,4 +1,4 @@
-@import "partials/base"; // To configure blueprint, edit the partials/base.sass file.
+@import "partials/base";
 
 $body: 'Quicksand', 'Ubuntu', 'Gill Sans', 'Calibri', sans-serif;
 $heading: 'Amaranth', 'Liberation Serif', 'Georgia', serif;
@@ -53,8 +53,11 @@ h1 {
     letter-spacing: 5px;
   }
 
-  p:first-letter {
+  p span {
+    display: inline-block;
+    margin-right: -18px;
     color: white;
+    -webkit-animation: glowing 1s infinite;
   }
 }
 
