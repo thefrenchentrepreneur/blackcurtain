@@ -58,6 +58,9 @@ h1 {
     margin-right: -18px;
     color: white;
     -webkit-animation: glowing 1s infinite;
+    -moz-animation: glowing 1s infinite;
+    -o-animation: glowing 1s infinite;
+    animation: glowing 1s infinite;
   }
 }
 
