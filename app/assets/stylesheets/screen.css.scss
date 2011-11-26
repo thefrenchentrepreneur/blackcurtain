@@ -205,11 +205,12 @@ aside {
   p {
     position: relative;
     height: 100px;
+    border: thin solid gray;
 
     strong {
       position: absolute;
       bottom: 0;
-      width: 80%;
+      width: 100%;
       color: $darkpink;
       font-size: 12px;
       background: $pink;
