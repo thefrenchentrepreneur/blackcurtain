@@ -10,6 +10,7 @@ $blue: #1991F4;
 html {
   height: 100%;
   @include background-image(radial-gradient(#444, #111));
+  background-attachment: fixed;
 }
 
 body {
