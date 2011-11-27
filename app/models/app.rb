@@ -11,8 +11,6 @@ class App < ActiveRecord::Base
                     :length => { :maximum => 30 }
   validates :current_character_position, :numericality => { :only_integers => true },
                                          :length => { :maximum => 1 }
-  validates :num_guesses, :presence => true,
-                          :numericality => { :only_integers => true }
   
   def split_name
     known_characters = self.name[0..self.current_character_position-1]

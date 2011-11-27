@@ -11,7 +11,7 @@ class GuessesController < ApplicationController
   end
   
   def create
-    @guess = Guess.new params[:guess]
+    @guess = @app.guesses.new(params[:guess])
     if not Guess.email_exists(@guess.email) or Guess.validate(@guess)
       save(@guess)
     else
@@ -26,7 +26,6 @@ class GuessesController < ApplicationController
   def save(guess)
     if guess.save
       @app.update_character_tally(guess.character)
-      @app.increment_num_guesses
       @hide = 'hide'
       @notice = "Thanks for participating, we'll send you the link to the website before we officially launch. If at least 4 of your guesses are correct, you'll be part of the limited group of private beta testers! Don't forget to come back next week and share with your friends."
       render 'new'
@@ -46,6 +45,7 @@ class GuessesController < ApplicationController
   end
 
   def include_top_guesses
+    @num_guesses = @app.guesses.count
     @top_guesses = @app.character_tallies.order('count desc').limit(3) 
     @top_guesses_percents = percents_of(@top_guesses)
     @top_guesses_heading = define_heading(@top_guesses.length)
@@ -54,18 +54,19 @@ class GuessesController < ApplicationController
   def percents_of(top_guesses)
     percents = Array.new
     top_guesses.each do |g|
-      percents << g.count.to_f / g.app.num_guesses * 100
+      percents << g.count.to_f / @num_guesses * 100
     end
     return percents
   end
 
   def define_heading(count)
+    @top_guesses_heading = "#{@num_guesses} guesses so far, "
     if count > 1
-      @top_guesses_heading = "The top #{@top_guesses.length } guesses are"
+      @top_guesses_heading += "the top #{@top_guesses.length } guesses are:"
     elsif count == 1
-      @top_guesses_heading = "The top guess is"
+      @top_guesses_heading += "The top guess is"
     else
-      @top_guesses_heading = "There are currently no guesses yet"
+      @top_guesses_heading += "There are currently no guesses yet"
     end
   end
 
