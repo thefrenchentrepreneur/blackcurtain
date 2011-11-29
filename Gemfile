@@ -4,6 +4,7 @@ gem 'rails', '3.1.1'
 gem 'therubyracer', '>= 0.9.8'
 gem 'jquery-rails'
 gem 'haml-rails', '~> 0.3.4'
+gem 'activeadmin'
 
 group :assets do
   gem 'sass-rails',   '~> 3.1.4'

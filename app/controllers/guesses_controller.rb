@@ -12,7 +12,8 @@ class GuessesController < ApplicationController
   
   def create
     @guess = @app.guesses.new(params[:guess])
-    if not Guess.email_exists(@guess.email) or Guess.validate(@guess)
+    @guess.check_guess # check if user guessed correctly
+    if not email_exists(@guess.email) or validate(@guess)
       save(@guess)
     else
       @hide = 'hide'
@@ -68,6 +69,27 @@ class GuessesController < ApplicationController
     else
       @top_guesses_heading += "There are currently no guesses yet"
     end
+  end
+  
+  def validate(guess)
+    return true if not email_exists(guess.email)
+    email_exists(guess.email) and not guessed_current_character(guess.email)
+  end
+
+  def email_exists(email)
+    guess = latest_guess_by(email)
+    not guess.nil?
+  end
+  
+  def guessed_current_character(email)
+    guess = latest_guess_by(email)
+    guess.created_at > App.first.date_last_character_revealed
+  end
+
+  def latest_guess_by(email)
+     Guess.where(:email => email)
+          .order('created_at DESC')
+          .first
   end
 
 end
