@@ -3,10 +3,11 @@ source 'http://rubygems.org'
 gem 'rails', '3.1.1'
 gem 'therubyracer', '>= 0.9.8'
 gem 'jquery-rails'
+gem 'sass-rails'
 gem 'activeadmin'
 
 group :assets do
-  gem 'sass-rails',   '~> 3.1.4'
+  # gem 'sass-rails', '~> 3.1.4'
   gem 'haml', '~> 3.1.3'
   gem 'haml-rails', '~> 0.3.4'
   gem 'coffee-rails', '~> 3.1.1'
