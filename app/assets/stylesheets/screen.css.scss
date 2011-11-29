@@ -215,9 +215,13 @@ aside {
       bottom: 0;
       left: 0;
       width: 100%;
-      color: $darkpink;
-      font-size: 12px;
       background: $pink;
+    }
+
+    span {
+      display: block;
+      margin-top: -1.25em;
+      color: white;
     }
   }
 }
