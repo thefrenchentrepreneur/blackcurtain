@@ -12,6 +12,6 @@ class Guess < ActiveRecord::Base
 
   def check_guess
     app = App.first
-    self.correct = app.name[app.current_character_position] == self.character
+    self.correct = app.name[app.current_character_position].upcase == self.character.upcase
   end
 end

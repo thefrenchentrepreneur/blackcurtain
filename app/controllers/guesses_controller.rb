@@ -12,7 +12,6 @@ class GuessesController < ApplicationController
   
   def create
     @guess = @app.guesses.new(params[:guess])
-    @guess.check_guess # check if user guessed correctly
     if not email_exists(@guess.email) or validate(@guess)
       save(@guess)
     else
@@ -25,6 +24,7 @@ class GuessesController < ApplicationController
   private
 
   def save(guess)
+    @guess.check_guess # check if user guessed correctly
     if guess.save
       @app.update_character_tally(guess.character)
       @hide = 'hide'
